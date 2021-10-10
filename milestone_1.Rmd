@@ -5,45 +5,16 @@ date: "08/10/2021"
 output: pdf_document
 ---
 
-# Welcome to your (maybe) first-ever data analysis project!
-
-And hopefully the first of many. Let's get started:
-
-1.  Install the [`datateachr`](https://github.com/UBC-MDS/datateachr) package by typing the following into your **R terminal**:
 
 ```{r}
-install.packages("devtools")
-devtools::install_github("UBC-MDS/datateachr")
-```
+# install.packages("devtools")
+# devtools::install_github("UBC-MDS/datateachr")
 
-2.  Load the packages below.
-
-```{r}
 library(datateachr)
 library(tidyverse)
+library(knitr)
+
 ```
-
-3.  Make a repository in the <https://github.com/stat545ubc-2021> Organization. You will be working with this repository for the entire data analysis project. You can either make it public, or make it private and add the TA's and Vincenzo as collaborators.
-
-4.  When you go to submit, submit a URL to your repository to canvas.
-
-# Instructions
-
-More details regarding the instructions and points allocated to each task can be found below. Briefly,
-
--   Each milestone is worth 30 points. The number of points allocated to each task will be annotated within each deliverable. Tasks that are more challenging will often be allocated more points.
-
--   10 points will be allocated to the reproducibility, cleanliness, and coherence of the analysis. While the three milestones will be submitted as independent deliverables, the analysis itself is a continuum - think of it as 3 chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. [Here](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/) is a good resource for what constitutes "good code". Learning good coding practices early in your career will save you hassle later on!
-
-# Learning Objectives
-
-By the end of this milestone, you should:
-
--   Become familiar with your dataset of choosing
-
--   Think of 4 questions that you would like to answer with your data
-
--   Generate a reproducible and clear report using R Markdown
 
 # Task 1: Choose your favorite dataset (10 points)
 
@@ -124,97 +95,171 @@ vancouver_trees %>%
 ```
 
 
-```{r}
+#### 1.3 Now that you've explored the 4 datasets that you were initially most interested in, let's narrow it down to 2. What lead you to choose these 2? Briefly explain your choices below, and feel free to include any code in your explanation.
 
-# A function that prints out a data frame with the variable names and their
-# percent missingness
-column.na <- function(w, name.w) {
-  w %>%
-    # For each column, calculate the % of values that are missing
-    summarise_all(function(x){sum(is.na(x))/length(x)}) %>% 
-    # Convert this to a column of responses, instead of a row
-    t() %>% as.data.frame() %>%
-    # Add two new rows that indicate the dataset of origin as well
-    # as the name of the variable. 
-    # I also renamed the missingness column (hence why I use transmute
-    # instead of mutate, which saves me a step)
-    transmute(dataset=name.w,
-              variable=rownames(.),
-              missingness=V1) %>%
-    return()
-}
+I ruled out the *cancer_sample* dataset because I found that the attributes were less interpretable. I also ruled out the *building_permits* dataset because a lot of the dataset was categorical data with a large number of categories. This type of data can be challenging to work with. 
+I am left with: 
 
-# Now let's get counts of the missingness for all the columns of our datasets
-column.na(vancouver_trees, "vancouver_trees") %>%
-  rbind(column.na(apt_buildings, "apt_buildings")) %>%
-  rbind(column.na(cancer_sample, "cancer_sample")) %>%
-  rbind(column.na(building_permits, "building_permits")) %>%
-# Boxplots of the % missingness for each dataset
-ggplot(aes(x=dataset, y=missingness)) + 
-  geom_boxplot() +
-  geom_jitter(nudge=0.2, alpha=0.5) +
-  scale_y_sqrt() +
+1. *apt_buildings*: Acquired courtesy of The City of Toronto's Open Data Portal. It currently has 3455 rows and 37 columns.
+
+2. *vancouver_trees*: Acquired courtesy of The City of Vancouver's Open Data Portal. It currently has 146611 rows and 20 columns.
+
+
+#### 1.4 Time for the final decision! Going back to the beginning, it's important to have an *end goal* in mind. For example, if I had chosen the `titanic` dataset for my project, I might've wanted to explore the relationship between survival and other variables. Try to think of 1 research question that you would want to answer with each dataset. Note them down below, and make your final choice based on what seems more interesting to you!
+
+1. Do apartment buildings differ in accessibility-related attributes depending on what ward the building was constructed?
+
+2. Does the location and surface boundaries (e.g. proximity to roads) influence tree growth?
+
+I chose the first dataset, *apt_buildings*, because I felt that the research question was more compelling. 
+
+# Task 2: Exploring your dataset (15 points)
+
+## Introduction
+
+The dataset I selected is the *apt_buildings* dataset, which is a dataset of apartment buildings registered in Toronto with the Apartment Building Standard (ABS) program. The data includes attributes such as whether the building has air conditioning or not, whether there is visitor parking, and how many units the apartment has. There are 37 such attributes in total, recorded for 3,455 apartment buildings.
+
+#### 2.1 Complete *4 out of the following 8 exercises* to dive deeper into your data. All datasets are different and therefore, not all of these tasks may make sense for your data - which is why you should only answer *4*. Use *dplyr* and *ggplot*.
+
+#### 2.2 For each of the 4 exercises that you complete, provide a *brief explanation* of why you chose that exercise in relation to your data (in other words, why does it make sense to do that?), and sufficient comments for a reader to understand your reasoning and code.
+
+##### 3.  Investigate how many missing values there are per variable. Can you find a way to plot this?
+
+In any data analytics pipeline, it is valuable to first explore the missingness in the dataset. I first looked at the number of missing data points for each variable (Figure \ref{missingness}). The most missing values occurred for the"amenities" and the "property management company name" variables.
+
+When looking at the definition of the "amenities" attribute though (Are there amenities available in the building? If so, what is available? Note: Amenities include outdoor or indoor pool(s), indoor rec. room, child play area, etc.), it is not clear whether these are truly "missing" values or if they simply indicate that the building has no amenities.
+
+For the property management company name attribute, I thought the missingness might have been correlated with the type of property (e.g. perhaps privately-owned companies were less likely to have a property manager). However, there did not appear to be such a trend (Table \ref{missingness.propertymanager}).
+
+The rest of the variables had <160 missing data points, and most had <100 missing data points. This corresponds to <5% of the data. While it may be valuable to check if this missingess is correlated with the other covariates in the dataset, it doesn't seem like excluding missing data will pose a large problem for downstream analyses, depending on the model.
+
+```{r, fig.cap="\\label{missingness} The number of records missing data for each of the attributes in the dataset."}
+
+apt_buildings %>%
+  summarise_all(function(x){sum(is.na(x))}) %>%
+  t() %>% as.data.frame() %>%
+  transmute(missingness=V1,
+            variable=rownames(.)) %>%
+ggplot(aes(x=variable, y=missingness)) +
+  geom_bar(stat='identity') +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45, hjust=1))
+
+kable(table(is.na(apt_buildings$prop_management_company_name), apt_buildings$property_type),
+      caption="\\label{missingness.propertymanager} Missingness status of property management company name attribute versus the type of property (privately owned, social housing, or TCHC).")
+
+```
+
+
+##### 4.  Explore the relationship between 2 variables in a plot.
+
+My initial exploratory question was the relationship between accessibility and wards. So, I started by plotting the relationship between the percentage of apartment units that were barrier-free over time (according to year built) for each ward. This could give me an idea of whether there has been a noticeable increase in accessibility over time, which I expect there to be. By color-coding by ward, I could see if the wards appeared to line up for development of accessible units or not. 
+
+By looking at Figure \ref{rate.of.accessibility}, iI could see that there was a general increase in percent of accessible units developed in the late 20th century, followed by a flattening out, where the rate of overall unit development was equal to the rate of accessible unit development. Surprisingly, this plateau of percentage of barrier-free units was quite different depending on the ward; in some wards, over 20% of the units were accessible by 2000; in other wards, virtually no units were accessible.
+
+```{r fig.cap="\\label{rate.of.accessibility} The percentage of barrier-free apartment units available in each ward through time."}
+
+apt_buildings %>%
+  # Group by years built
+  group_by(year_built, ward) %>%
+  # Sum the number of units in that year
+  summarise(no_barrier_free_accessible_units=sum(no_barrier_free_accessible_units, na.rm=T),
+            no_of_units = sum(no_of_units, na.rm=T)) %>%
+  # Ungroup by year, now let's only group by ward, and arrange by year
+  ungroup() %>% group_by(ward) %>% arrange(year_built) %>%
+  # Calculate the cumulative sum of units and barrier-free units,
+  # as well as the percent of units that are barrier free
+  mutate(csum.barrierfree=cumsum(no_barrier_free_accessible_units),
+         csum.units = cumsum(no_of_units),
+         percent.csum.barrierfree = csum.barrierfree / csum.units) %>%
+ggplot(aes(x=year_built, y=percent.csum.barrierfree*100, col=ward)) +
+  geom_line() +
+  theme_bw() +
+  xlim(c(1900, 2020)) +
+  xlab("Year built") + ylab("Percent of new units that are barrier-free accessible") 
+  
+```
+
+
+##### 6.  Use a boxplot to look at the frequency of different observations within a single variable. You can do this for more than one variable if you wish!
+
+I wanted to explore aspects of accessibility for apartment buildings and how consistent "accessible" buildings are. I chose to compare the number of barrier-free accessible units reported for buildings that reported having a barrier-free accessibility entrance versus those that don't.
+
+Unsurprisingly, buildings with accessible entrances appeared to have, on average, a higher number of accessible units (Figure \ref{barrier.free.vs.entrance}). (Note that this relationship does not take into account the total number of units in the building, however). It was surprising to me that there were so many buildings with reportedly 'barrier-free accessible units', but the buildings didn't have accessible entrances. This led me to question the legitimacy of the "barrier-free accessible units".
+
+I wondered if different wards had differing amounts of this "false accessibility", where buildings reportedly had barrier-free units but no barrier-free doors. I followed up by calculating the percentage of buildings in each ward that reported having barrier-free units which did not have a barrier-free entrance, and I found that this percentage differed pretty substantially across wards (Figure \ref{false.access})
+
+```{r fig.cap="\\label{barrier.free.vs.entrance} The number of barrier-free units in apartment buildings that reported having a barrier-free accessible entrance versus apartment buildings that reported not having a barrier-free accessible entrance."}
+
+# Plot barrier-free accessible units according to whether or not the building had a barrier-free accessibility
+apt_buildings %>%
+  filter(!is.na(barrier_free_accessibilty_entr)) %>%
+ggplot(aes(x=barrier_free_accessibilty_entr, 
+           y=no_barrier_free_accessible_units)) +
+  geom_boxplot(na.rm=T) +
+  # nice display
+  theme_bw() +
+  # square-root scale the y-axis
+  coord_trans(y="sqrt") +
+  xlab("Barrier-free accessibility entrance") + 
+  ylab("Number of barrier-free accessible units")
+
+```
+
+
+```{r fig.cap="\\label{false.access} The percent of buildings with barrier-free accessible units that do not have an accessible entrance in each ward."}
+
+# Percent of buildings with barrier-free accessible units that do not have an accessible entrance
+apt_buildings %>%
+  # Filter to only look at units with "barrier-free accessible units"
+  filter(no_barrier_free_accessible_units > 0) %>%
+  # Group by ward
+  group_by(ward) %>%
+  # For each ward, calculate the % of buildings that don't have an accessible entrance
+  summarise(percent.without.accessible.entrance = sum(barrier_free_accessibilty_entr=="NO")/n()) %>%
+  # Plot as a barchart
+ggplot(aes(x=ward, y=percent.without.accessible.entrance*100)) +
+  geom_bar(stat='identity') +
+  xlab("Ward") + ylab("Percent of buildings with accessible units\nthat don't have accessible entrances") +
   theme_bw()
 
 ```
 
 
-#### 1.3 Now that you've explored the 4 datasets that you were initially most interested in, let's narrow it down to 2. What lead you to choose these 2? Briefly explain your choices below, and feel free to include any code in your explanation.
+##### 8.  Use a density plot to explore any of your variables (that are suitable for this type of plot).
 
-I ruled out the `apt_buildings` dataset because it had a lot of missingness in the data. I also ruled out the building_permits data because the data is largely address-based, which can be difficult to work with and takes more pre-processing and feature engineering.
+Finally, I looked at the density of storeys in each ward (Figure \ref{density.plot}). I would expect this to differ substantially for each ward-- wards that are more suburban I would expect to see smaller-storeyed buildings. Understanding this distribution for each ward is important for interpreting factors such as bike parking versus car parking-- more dense areas (wards with more big-storey apartments) would likely have more bike parking and less car parking.
 
-```{r}
+```{r fig.cap="\\label{density.plot} Density plot of the number of storeys per apartment building for each ward in the dataset."}
 
-building_permits %>% 
-  summarise_if(is.character, function(x){length(unique(x))}) %>%
-  t() %>% as.data.frame()
+apt_buildings %>%
+ggplot(aes(x=no_of_storeys, y=ward)) +
+  ggridges::geom_density_ridges() +
+  xlab("Number of storeys") + ylab("Density") +
+  theme_bw()
 
 ```
 
-I am left with: 
-
-1: *cancer_sample*: Acquired courtesy of UCI Machine Learning Repository. It currently has 569 rows and 32 columns.
-
-2: *vancouver_trees*: Acquired courtesy of The City of Vancouver's Open Data Portal. It currently has 146611 rows and 20 columns.
-
-#### 1.4 Time for the final decision! Going back to the beginning, it's important to have an *end goal* in mind. For example, if I had chosen the `titanic` dataset for my project, I might've wanted to explore the relationship between survival and other variables. Try to think of 1 research question that you would want to answer with each dataset. Note them down below, and make your final choice based on what seems more interesting to you!
-
-1: What characteristics differentiate benign vs malignant tumors?
-2: 
-
-# Important note
-
-Read Tasks 2 and 3 *fully* before starting to complete either of them. Probably also a good point to grab a coffee to get ready for the fun part!
-
-This project is semi-guided, but meant to be *independent*. For this reason, you will complete tasks 2 and 3 below (under the **START HERE** mark) as if you were writing your own exploratory data analysis report, and this guidance never existed! Feel free to add a brief introduction section to your project, format the document with markdown syntax as you deem appropriate, and structure the analysis as you deem appropriate. Remember, marks will be awarded for completion of the 4 tasks, but 10 points of the whole project are allocated to a reproducible and clean analysis. If you feel lost, you can find a sample data analysis [here](https://www.kaggle.com/headsortails/tidy-titarnic) to have a better idea. However, bear in mind that it is **just an example** and you will not be required to have that level of complexity in your project.
-
-# Task 2: Exploring your dataset (15 points)
-
-If we rewind and go back to the learning objectives, you'll see that by the end of this deliverable, you should have formulated *4* research questions about your data that you may want to answer during your project. However, it may be handy to do some more exploration on your dataset of choice before creating these questions - by looking at the data, you may get more ideas. **Before you start this task, read all instructions carefully until you reach START HERE**.
-
-#### 2.1 Complete *4 out of the following 8 exercises* to dive deeper into your data. All datasets are different and therefore, not all of these tasks may make sense for your data - which is why you should only answer *4*. Use *dplyr* and *ggplot*.
-
-1.  Plot the distribution of a numeric variable.
-
-2.  Create a new variable based on other variables in your data (only if it makes sense)
-
-3.  Investigate how many missing values there are per variable. Can you find a way to plot this?
-
-4.  Explore the relationship between 2 variables in a plot.
-
-5.  Filter observations in your data according to your own criteria. Think of what you'd like to explore - again, if this was the `titanic` dataset, I may want to narrow my search down to passengers born in a particular year...
-
-6.  Use a boxplot to look at the frequency of different observations within a single variable. You can do this for more than one variable if you wish!
-
-7.  Make a new tibble with a subset of your data, with variables and observations that you are interested in exploring.
-
-8.  Use a density plot to explore any of your variables (that are suitable for this type of plot).
-
-#### 2.2 For each of the 4 exercises that you complete, provide a *brief explanation* of why you chose that exercise in relation to your data (in other words, why does it make sense to do that?), and sufficient comments for a reader to understand your reasoning and code.
 
 # Task 3: Write your research questions (5 points)
 
 So far, you have chosen a dataset and gotten familiar with it through exploring the data. Now it's time to figure out 4 research questions that you would like to answer with your data! Write the 4 questions and any additional comments at the end of this deliverable. These questions are not necessarily set in stone - TAs will review them and give you feedback; therefore, you may choose to pursue them as they are for the rest of the project, or make modifications!
+
+There are four overarching attributes that many of the variables in this dataset fit into:
+
+1. Accessibility (e.g. barrier-free entrance, number of elevators, intercom, number of accessible parking spaces, garbage chutes, laundry room, number of elevators, number of barrier-free accessible units)
+
+2. Sustainability (e.g. window type, air conditioning, bike parking, heating type)
+
+3. Safety (exterior fire escape, fire alarm, sprinkler system, emergency power)
+
+4. Quality of life (amenities, balconies, bike parking, visitor parking, locker and/or storage room, pets allowed)
+
+For each of these attributes, I want to assess:
+
+1. Whether the attribute is associated with the ward in which the building exists.
+
+2. Whether the attribute has "increased" (i.e. more safety standards, higher 'quality of life', more sustainable & accessible buildings) over time.
 
 ### **Attribution**
 
