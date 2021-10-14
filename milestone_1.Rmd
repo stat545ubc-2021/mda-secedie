@@ -2,7 +2,7 @@
 title: "Mini Data-Analysis Deliverable 1"
 author: "Shannon Edie"
 date: "08/10/2021"
-output: pdf_document
+output: github_document
 ---
 
 
