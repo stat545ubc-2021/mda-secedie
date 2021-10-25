@@ -8,14 +8,14 @@ This data analysis is based on exploring the accessibility of apartment building
 
 All files in this analysis can be segmented into three milestones, completed sequentially. These milestones have separate tagged releases, labelled m1, m2, and m3.
 
-## Milestone 1
+### Milestone 1
 
 The first part of the data analysis, including selection of the dataset and preliminary exploration of this data. This milestone also includes the research questions. This milestone was due 9 October 2021.
 
 *  **milestone_1**  The anlaysis (.Rmd) and output (.md) for this milestone.
 *  **milestone_1_files** A directory containing the figures that are embedded in milestone 1 .md file.
 
-## Milestone 2
+### Milestone 2
 
 The second part of the data analysis, which focused on summarising and graphing the Toronto apartment building dataset. This milestone was due 19 October 2021.
 
@@ -23,7 +23,7 @@ The second part of the data analysis, which focused on summarising and graphing 
 *  **milestone_2_files** A directory containing the figures that are embedded in milestone 2 .md file.
 
 
-## Milestone 3
+### Milestone 3
 
 The third and final part of the data analysis, which focused on model building and data I/O. This milestone was due 28 October 2021.
 
