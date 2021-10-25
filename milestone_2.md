@@ -167,14 +167,14 @@ Ensure that the output of each operation is printed!
 
 **Graphing:**
 
-5.  Create a graph out of summarized variables that has at least two
+1.  Create a graph out of summarized variables that has at least two
     geom layers.
-6.  Create a graph of your choosing, make one of the axes logarithmic,
+2.  Create a graph of your choosing, make one of the axes logarithmic,
     and format the axes labels so that they are “pretty” or easier to
     read.
-7.  Make a graph where it makes sense to customize the alpha
+3.  Make a graph where it makes sense to customize the alpha
     transparency.
-8.  Create 3 histograms out of summarized variables, with each histogram
+4.  Create 3 histograms out of summarized variables, with each histogram
     having different sized bins. Pick the “best” one and explain why it
     is the best.
 
@@ -183,7 +183,7 @@ for!
 
 <!------------------------- Start your work below ----------------------------->
 
-# Research question \#1
+# Research question #1
 
 1.  Is the accessibility of a unit associated with the ward/community in
     which the building exists?
@@ -226,12 +226,12 @@ gt(rowname_col="community",
     subtitle=md("\\label{rq1.summary.table} The number of buildings in each community with three metrics of accessibility: (1) whether or not the building has any accessible parking; (2) whether or not the building has a barrier-free entrance; and (3) whether or not the building has elevators. Note that if the building only has a main storey but they do not have an elevator, then the building is still identified as 'having an elevator'."))
 ```
 
-<div id="acqdmyktsn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xfamizfgcq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#acqdmyktsn .gt_table {
+#xfamizfgcq .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -256,7 +256,7 @@ gt(rowname_col="community",
   border-left-color: #D3D3D3;
 }
 
-#acqdmyktsn .gt_heading {
+#xfamizfgcq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -268,7 +268,7 @@ gt(rowname_col="community",
   border-right-color: #D3D3D3;
 }
 
-#acqdmyktsn .gt_title {
+#xfamizfgcq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -278,7 +278,7 @@ gt(rowname_col="community",
   border-bottom-width: 0;
 }
 
-#acqdmyktsn .gt_subtitle {
+#xfamizfgcq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -288,13 +288,13 @@ gt(rowname_col="community",
   border-top-width: 0;
 }
 
-#acqdmyktsn .gt_bottom_border {
+#xfamizfgcq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#acqdmyktsn .gt_col_headings {
+#xfamizfgcq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -309,7 +309,7 @@ gt(rowname_col="community",
   border-right-color: #D3D3D3;
 }
 
-#acqdmyktsn .gt_col_heading {
+#xfamizfgcq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -329,7 +329,7 @@ gt(rowname_col="community",
   overflow-x: hidden;
 }
 
-#acqdmyktsn .gt_column_spanner_outer {
+#xfamizfgcq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -341,15 +341,15 @@ gt(rowname_col="community",
   padding-right: 4px;
 }
 
-#acqdmyktsn .gt_column_spanner_outer:first-child {
+#xfamizfgcq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#acqdmyktsn .gt_column_spanner_outer:last-child {
+#xfamizfgcq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#acqdmyktsn .gt_column_spanner {
+#xfamizfgcq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -361,7 +361,7 @@ gt(rowname_col="community",
   width: 100%;
 }
 
-#acqdmyktsn .gt_group_heading {
+#xfamizfgcq .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -383,7 +383,7 @@ gt(rowname_col="community",
   vertical-align: middle;
 }
 
-#acqdmyktsn .gt_empty_group_heading {
+#xfamizfgcq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -398,15 +398,15 @@ gt(rowname_col="community",
   vertical-align: middle;
 }
 
-#acqdmyktsn .gt_from_md > :first-child {
+#xfamizfgcq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#acqdmyktsn .gt_from_md > :last-child {
+#xfamizfgcq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#acqdmyktsn .gt_row {
+#xfamizfgcq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -425,7 +425,7 @@ gt(rowname_col="community",
   overflow-x: hidden;
 }
 
-#acqdmyktsn .gt_stub {
+#xfamizfgcq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -437,7 +437,7 @@ gt(rowname_col="community",
   padding-left: 12px;
 }
 
-#acqdmyktsn .gt_summary_row {
+#xfamizfgcq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -447,7 +447,7 @@ gt(rowname_col="community",
   padding-right: 5px;
 }
 
-#acqdmyktsn .gt_first_summary_row {
+#xfamizfgcq .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -457,7 +457,7 @@ gt(rowname_col="community",
   border-top-color: #D3D3D3;
 }
 
-#acqdmyktsn .gt_grand_summary_row {
+#xfamizfgcq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -467,7 +467,7 @@ gt(rowname_col="community",
   padding-right: 5px;
 }
 
-#acqdmyktsn .gt_first_grand_summary_row {
+#xfamizfgcq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -477,11 +477,11 @@ gt(rowname_col="community",
   border-top-color: #D3D3D3;
 }
 
-#acqdmyktsn .gt_striped {
+#xfamizfgcq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#acqdmyktsn .gt_table_body {
+#xfamizfgcq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -490,7 +490,7 @@ gt(rowname_col="community",
   border-bottom-color: #D3D3D3;
 }
 
-#acqdmyktsn .gt_footnotes {
+#xfamizfgcq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -504,13 +504,13 @@ gt(rowname_col="community",
   border-right-color: #D3D3D3;
 }
 
-#acqdmyktsn .gt_footnote {
+#xfamizfgcq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#acqdmyktsn .gt_sourcenotes {
+#xfamizfgcq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -524,41 +524,41 @@ gt(rowname_col="community",
   border-right-color: #D3D3D3;
 }
 
-#acqdmyktsn .gt_sourcenote {
+#xfamizfgcq .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#acqdmyktsn .gt_left {
+#xfamizfgcq .gt_left {
   text-align: left;
 }
 
-#acqdmyktsn .gt_center {
+#xfamizfgcq .gt_center {
   text-align: center;
 }
 
-#acqdmyktsn .gt_right {
+#xfamizfgcq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#acqdmyktsn .gt_font_normal {
+#xfamizfgcq .gt_font_normal {
   font-weight: normal;
 }
 
-#acqdmyktsn .gt_font_bold {
+#xfamizfgcq .gt_font_bold {
   font-weight: bold;
 }
 
-#acqdmyktsn .gt_font_italic {
+#xfamizfgcq .gt_font_italic {
   font-style: italic;
 }
 
-#acqdmyktsn .gt_super {
+#xfamizfgcq .gt_super {
   font-size: 65%;
 }
 
-#acqdmyktsn .gt_footnote_marks {
+#xfamizfgcq .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -652,16 +652,15 @@ gt(rowname_col="community",
 
 For the visualization, I looked at the breakdown of the percent of
 barrier-free units per building, separated by whether or not the
-building had a barrier-free entrance (Figure ). I used a log-10 scale of
-the y-axis (graphing strategy 6) to visualize the data better. The
-communities look relatively comparable. What is interesting though is
-that buildings without a barrier-free entrance appear to have a similar
-percentage of barrier-free units to buildings that have a barrier-free
-entrance.
+building had a barrier-free entrance (Figure \\ref{rq1.graph}). I used a
+log-10 scale of the y-axis (graphing strategy 6) to visualize the data
+better. The communities look relatively comparable. What is interesting
+though is that buildings without a barrier-free entrance appear to have
+a similar percentage of barrier-free units to buildings that have a
+barrier-free entrance.
 
 ``` r
 accessibility %>%
-  arrange(community) %>%
 ggplot() +
   geom_boxplot(aes(x=community,
                    # Add 1 to allow for log-transform
@@ -679,19 +678,21 @@ ggplot() +
 not the building has a barrier-free
 entrance.](milestone_2_files/figure-gfm/rq1.graph-1.png)
 
-# Research question \#2
+# Research question #2
 
-2.  Have the accessibility features for apartment buildings increased
+1.  Have the accessibility features for apartment buildings increased
     over time?
 
 For the summarising step, I began by defining a new categorical variable
 with three categories (summary strategy 3) based on the number of
-elevators, as well as the number of storeys: \* If the building was only
-one floor, then I labelled the building as not needing an elevator. \*
-If the building had several storeys and had no elevators, then I
-labelled the building as needing but not having an elevator. \* If the
-building had several storeys and at least one elevator, then I labelled
-the building as needing and having an elevator.
+elevators, as well as the number of storeys:
+
+-   If the building was only one floor, then I labelled the building as
+    not needing an elevator.
+-   If the building had several storeys and had no elevators, then I
+    labelled the building as needing but not having an elevator.
+-   If the building had several storeys and at least one elevator, then
+    I labelled the building as needing and having an elevator.
 
 ``` r
 accessibility.rq2 <- accessibility %>%
@@ -705,14 +706,14 @@ accessibility.rq2 <- accessibility %>%
 For the graphical step, I looked at the total percentage of buildings
 over time that had each of the accessibility features I was considering,
 now including whether or not the building had an elevator, if needed
-(Figure ). I used two different geom layers to add both lines and points
-to this graph (graphing strategy 5). Surprisingly, intercoms were
-present in most buildings even since the 1970’s. Elevators appeared to
-make a fast entrance into the apartment building scene, but this could
-be due to the rising number of high-rise buildings. This theory requires
-further research. The rate at which barrier-free entrances and
-accessible parking have increased in prevalence appears to be relatively
-similar.
+(Figure \\ref{rq2.graph}). I used two different geom layers to add both
+lines and points to this graph (graphing strategy 5). Surprisingly,
+intercoms were present in most buildings even since the 1970’s.
+Elevators appeared to make a fast entrance into the apartment building
+scene, but this could be due to the rising number of high-rise
+buildings. This theory requires further research. The rate at which
+barrier-free entrances and accessible parking have increased in
+prevalence appears to be relatively similar.
 
 ``` r
 accessibility.rq2 %>%
@@ -751,19 +752,19 @@ ggplot() +
 feature. Each of these points
 were](milestone_2_files/figure-gfm/rq2.graph-1.png)
 
-# Research question \#3
+# Research question #3
 
-3.  Is the safety of an apartment building associated with the
+1.  Is the safety of an apartment building associated with the
     ward/community in which the building exists?
 
 For graphical exploration of Research Question 3, I looked into how the
 presence of a fire escape differed across the three communities in
 conjunction with the number of storeys present for each building (Figure
-). I assumed that some high-rise buildings might not have fire escapes
-simply because they are so tall, but I was surprised to find that the
-number of storeys did not have as obvious of an influence on whether or
-not each building had a fire escape. I used graphing strategy 6 for this
-question.
+\\ref{rq3.graph}). I assumed that some high-rise buildings might not
+have fire escapes simply because they are so tall, but I was surprised
+to find that the number of storeys did not have as obvious of an
+influence on whether or not each building had a fire escape. I used
+graphing strategy 6 for this question.
 
 ``` r
 safety %>%
@@ -815,12 +816,12 @@ gt(rowname_col="community",
     subtitle="The number of buildings in each community with various safety features.")
 ```
 
-<div id="paesuaktqw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xyicyvuppm" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#paesuaktqw .gt_table {
+#xyicyvuppm .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -845,7 +846,7 @@ gt(rowname_col="community",
   border-left-color: #D3D3D3;
 }
 
-#paesuaktqw .gt_heading {
+#xyicyvuppm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -857,7 +858,7 @@ gt(rowname_col="community",
   border-right-color: #D3D3D3;
 }
 
-#paesuaktqw .gt_title {
+#xyicyvuppm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -867,7 +868,7 @@ gt(rowname_col="community",
   border-bottom-width: 0;
 }
 
-#paesuaktqw .gt_subtitle {
+#xyicyvuppm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -877,13 +878,13 @@ gt(rowname_col="community",
   border-top-width: 0;
 }
 
-#paesuaktqw .gt_bottom_border {
+#xyicyvuppm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#paesuaktqw .gt_col_headings {
+#xyicyvuppm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -898,7 +899,7 @@ gt(rowname_col="community",
   border-right-color: #D3D3D3;
 }
 
-#paesuaktqw .gt_col_heading {
+#xyicyvuppm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -918,7 +919,7 @@ gt(rowname_col="community",
   overflow-x: hidden;
 }
 
-#paesuaktqw .gt_column_spanner_outer {
+#xyicyvuppm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -930,15 +931,15 @@ gt(rowname_col="community",
   padding-right: 4px;
 }
 
-#paesuaktqw .gt_column_spanner_outer:first-child {
+#xyicyvuppm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#paesuaktqw .gt_column_spanner_outer:last-child {
+#xyicyvuppm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#paesuaktqw .gt_column_spanner {
+#xyicyvuppm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -950,7 +951,7 @@ gt(rowname_col="community",
   width: 100%;
 }
 
-#paesuaktqw .gt_group_heading {
+#xyicyvuppm .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -972,7 +973,7 @@ gt(rowname_col="community",
   vertical-align: middle;
 }
 
-#paesuaktqw .gt_empty_group_heading {
+#xyicyvuppm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -987,15 +988,15 @@ gt(rowname_col="community",
   vertical-align: middle;
 }
 
-#paesuaktqw .gt_from_md > :first-child {
+#xyicyvuppm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#paesuaktqw .gt_from_md > :last-child {
+#xyicyvuppm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#paesuaktqw .gt_row {
+#xyicyvuppm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1014,7 +1015,7 @@ gt(rowname_col="community",
   overflow-x: hidden;
 }
 
-#paesuaktqw .gt_stub {
+#xyicyvuppm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1026,7 +1027,7 @@ gt(rowname_col="community",
   padding-left: 12px;
 }
 
-#paesuaktqw .gt_summary_row {
+#xyicyvuppm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1036,7 +1037,7 @@ gt(rowname_col="community",
   padding-right: 5px;
 }
 
-#paesuaktqw .gt_first_summary_row {
+#xyicyvuppm .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1046,7 +1047,7 @@ gt(rowname_col="community",
   border-top-color: #D3D3D3;
 }
 
-#paesuaktqw .gt_grand_summary_row {
+#xyicyvuppm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1056,7 +1057,7 @@ gt(rowname_col="community",
   padding-right: 5px;
 }
 
-#paesuaktqw .gt_first_grand_summary_row {
+#xyicyvuppm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1066,11 +1067,11 @@ gt(rowname_col="community",
   border-top-color: #D3D3D3;
 }
 
-#paesuaktqw .gt_striped {
+#xyicyvuppm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#paesuaktqw .gt_table_body {
+#xyicyvuppm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1079,7 +1080,7 @@ gt(rowname_col="community",
   border-bottom-color: #D3D3D3;
 }
 
-#paesuaktqw .gt_footnotes {
+#xyicyvuppm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1093,13 +1094,13 @@ gt(rowname_col="community",
   border-right-color: #D3D3D3;
 }
 
-#paesuaktqw .gt_footnote {
+#xyicyvuppm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#paesuaktqw .gt_sourcenotes {
+#xyicyvuppm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1113,41 +1114,41 @@ gt(rowname_col="community",
   border-right-color: #D3D3D3;
 }
 
-#paesuaktqw .gt_sourcenote {
+#xyicyvuppm .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#paesuaktqw .gt_left {
+#xyicyvuppm .gt_left {
   text-align: left;
 }
 
-#paesuaktqw .gt_center {
+#xyicyvuppm .gt_center {
   text-align: center;
 }
 
-#paesuaktqw .gt_right {
+#xyicyvuppm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#paesuaktqw .gt_font_normal {
+#xyicyvuppm .gt_font_normal {
   font-weight: normal;
 }
 
-#paesuaktqw .gt_font_bold {
+#xyicyvuppm .gt_font_bold {
   font-weight: bold;
 }
 
-#paesuaktqw .gt_font_italic {
+#xyicyvuppm .gt_font_italic {
   font-style: italic;
 }
 
-#paesuaktqw .gt_super {
+#xyicyvuppm .gt_super {
   font-size: 65%;
 }
 
-#paesuaktqw .gt_footnote_marks {
+#xyicyvuppm .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1258,14 +1259,14 @@ gt(rowname_col="community",
 #chisq.test(as.matrix(emergency_power_ward[,2:4]))
 ```
 
-# Research question \#4
+# Research question #4
 
-4.  Have the safety features for apartment buildings in Toronto
+1.  Have the safety features for apartment buildings in Toronto
     increased over time?
 
 For Research Question 4, I first used summary strategy 3 to define each
-building as either small (&lt;4 storeys), low-rise (4-12 storeys), or
-hihg-rise (&gt;12 storeys). I thought these deliminations may be more
+building as either small (\<4 storeys), low-rise (4-12 storeys), or
+hihg-rise (>12 storeys). I thought these deliminations may be more
 simple than the exact number of storeys when I want to investigate
 something like whether or not an exterior fire escape was prevalent &
 practical.
@@ -1358,8 +1359,8 @@ be easier to understand when read manually.
 ### 2.1 (2.5 points)
 
 Based on the definition above, can you identify if your data is tidy or
-untidy? Go through all your columns, or if you have &gt;8 variables,
-just pick 8, and explain whether the data is untidy or tidy.
+untidy? Go through all your columns, or if you have \>8 variables, just
+pick 8, and explain whether the data is untidy or tidy.
 
 <!--------------------------- Start your work below --------------------------->
 

@@ -13,7 +13,7 @@ This time, we will explore more in depth the concept of *tidy data*, and hopeful
 
 **NOTE**: The main purpose of the mini data analysis is to integrate what you learn in class in an analysis. Although each milestone provides a framework for you to conduct your analysis, it's possible that you might find the instructions too rigid for your data set. If this is the case, you may deviate from the instructions -- just make sure you're demonstrating a wide range of tools and techniques taught in this class.
 
-Begin by loading your data and the tidyverse package below: 
+Begin by loading your data and the tidyverse package below:
 
 ```{r, message = FALSE}
 library(datateachr) # <- might contain the data you picked!
@@ -26,36 +26,37 @@ library(gt) # nicely printed tables
 
 By the end of this milestone, you should:
 
-+ Become familiar with manipulating and summarizing your data in tibbles using `dplyr` and `tidyr`, with a research question in mind.
-+ Understand what *tidy* data is, and how to create it. In milestone 3, we will explore when this might be useful.
-+ Generate a reproducible and clear report using R Markdown.
-+ Gain a greater understanding of how to use R to answer research questions about your data.
+-   Become familiar with manipulating and summarizing your data in tibbles using `dplyr` and `tidyr`, with a research question in mind.
+-   Understand what *tidy* data is, and how to create it. In milestone 3, we will explore when this might be useful.
+-   Generate a reproducible and clear report using R Markdown.
+-   Gain a greater understanding of how to use R to answer research questions about your data.
 
 **Things to keep in mind**
 
-+ Remember to document your code, be explicit about what you are doing, and write notes in this markdown document when you feel that context is required. Create your analysis as if someone else will be reading it! **There will be 2.5 points reserved for reproducibility, readability, and repo organization.**
+-   Remember to document your code, be explicit about what you are doing, and write notes in this markdown document when you feel that context is required. Create your analysis as if someone else will be reading it! **There will be 2.5 points reserved for reproducibility, readability, and repo organization.**
 
-+ Before working on each task, you should always keep in mind the specific **research question** that you're trying to answer.
+-   Before working on each task, you should always keep in mind the specific **research question** that you're trying to answer.
 
 # Task 1: Process and summarize your data (15 points)
 
-From milestone 1, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various data manipulation functions. 
+From milestone 1, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various data manipulation functions.
 
-### 1.1 (2.5 points) 
+### 1.1 (2.5 points)
 
 First, write out the 4 research questions you defined in milestone 1 were. This will guide your work through milestone 2:
 
 <!-------------------------- Start your work below ---------------------------->
-1. Is the accessibility of a unit associated with the ward in which the building exists?
-2. Have the accessibility features for apartment buildings increased over time?
-3. Is the safety of an apartment building associated with the ward in which the building exists?
-4. Have the safety features for apartment buildings in Toronto increased over time?
+
+1.  Is the accessibility of a unit associated with the ward in which the building exists?
+2.  Have the accessibility features for apartment buildings increased over time?
+3.  Is the safety of an apartment building associated with the ward in which the building exists?
+4.  Have the safety features for apartment buildings in Toronto increased over time?
 
 The two characteristics, safety and accessibility, can be quantified by several variables in the dataset:
 
-1. Accessibility (e.g. barrier-free entrance, intercom, number of accessible parking spaces, number of elevators, number of barrier-free accessible units)
+1.  Accessibility (e.g. barrier-free entrance, intercom, number of accessible parking spaces, number of elevators, number of barrier-free accessible units)
 
-2. Safety (exterior fire escape, fire alarm, sprinkler system, emergency power, air conditioning, heating type)
+2.  Safety (exterior fire escape, fire alarm, sprinkler system, emergency power, air conditioning, heating type)
 
 Before processing, I can reduce my dataset to only include the variables that I will be interested in for this analysis.
 
@@ -101,27 +102,28 @@ accessibility <- apt_buildings %>%
     )
 
 ```
+
 <!----------------------------------------------------------------------------->
 
 ### 1.2 (10 points)
 
-Now, for each of your four research questions, choose one task from options 1-4 (summarizing), and one other task from 4-8 (graphing). You should have 2 tasks done for each research question (8 total). Make sure it makes sense to do them! (e.g. don't use a numerical variables for a task that needs a categorical variable.). Comment on why each task helps (or doesn't!) answer the corresponding research question. 
+Now, for each of your four research questions, choose one task from options 1-4 (summarizing), and one other task from 4-8 (graphing). You should have 2 tasks done for each research question (8 total). Make sure it makes sense to do them! (e.g. don't use a numerical variables for a task that needs a categorical variable.). Comment on why each task helps (or doesn't!) answer the corresponding research question.
 
-Ensure that the output of each operation is printed! 
+Ensure that the output of each operation is printed!
 
 **Summarizing:**
 
-1. Compute the *range*, *mean*, and *two other summary statistics* of **one numerical variable** across the groups of **one categorical variable** from your data.
-2. Compute the number of observations for at least one of your categorical variables. Do not use the function `table()`!
-3. Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! *An example: age in years into "child, teen, adult, senior".*
-4. Based on two categorical variables, calculate two summary statistics of your choosing.
+1.  Compute the *range*, *mean*, and *two other summary statistics* of **one numerical variable** across the groups of **one categorical variable** from your data.
+2.  Compute the number of observations for at least one of your categorical variables. Do not use the function `table()`!
+3.  Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! *An example: age in years into "child, teen, adult, senior".*
+4.  Based on two categorical variables, calculate two summary statistics of your choosing.
 
 **Graphing:**
 
-5. Create a graph out of summarized variables that has at least two geom layers.
-6. Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are "pretty" or easier to read. 
-7. Make a graph where it makes sense to customize the alpha transparency.
-8. Create 3 histograms out of summarized variables, with each histogram having different sized bins. Pick the "best" one and explain why it is the best.
+1.  Create a graph out of summarized variables that has at least two geom layers.
+2.  Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are "pretty" or easier to read.
+3.  Make a graph where it makes sense to customize the alpha transparency.
+4.  Create 3 histograms out of summarized variables, with each histogram having different sized bins. Pick the "best" one and explain why it is the best.
 
 Make sure it's clear what research question you are doing each operation for!
 
@@ -129,7 +131,7 @@ Make sure it's clear what research question you are doing each operation for!
 
 # Research question \#1
 
-1. Is the accessibility of a unit associated with the ward/community in which the building exists?
+1.  Is the accessibility of a unit associated with the ward/community in which the building exists?
 
 For a summary for Research Question 1, I looked at counts (summary strategy 2) for each of the yes/no accessibility attributes. This format could be useful to set up for a chi-squared test to determine whether there is a relationship between the communities and the attributes. This strategy could be taken for each ward, as well, but for the purposes of display, I left it as per community.
 
@@ -168,12 +170,11 @@ gt(rowname_col="community",
 
 ```
 
-For the visualization, I looked at the breakdown of the percent of barrier-free units per building, separated by whether or not the building had a barrier-free entrance (Figure \ref{rq1.graph}). I used a log-10 scale of the y-axis (graphing strategy 6) to visualize the data better. The communities look relatively comparable. What is interesting though is that buildings without a barrier-free entrance appear to have a similar percentage of barrier-free units to buildings that have a barrier-free entrance.
+For the visualization, I looked at the breakdown of the percent of barrier-free units per building, separated by whether or not the building had a barrier-free entrance (Figure \\ref{rq1.graph}). I used a log-10 scale of the y-axis (graphing strategy 6) to visualize the data better. The communities look relatively comparable. What is interesting though is that buildings without a barrier-free entrance appear to have a similar percentage of barrier-free units to buildings that have a barrier-free entrance.
 
 ```{r rq1.graph, fig.cap="\\label{rq1.graph} Number of barrier-free units per community, separated by whether or not the building has a barrier-free entrance."}
 
 accessibility %>%
-  arrange(community) %>%
 ggplot() +
   geom_boxplot(aes(x=community,
                    # Add 1 to allow for log-transform
@@ -186,15 +187,15 @@ ggplot() +
   
 ```
 
-
 # Research question \#2
 
-2. Have the accessibility features for apartment buildings increased over time?
+1.  Have the accessibility features for apartment buildings increased over time?
 
 For the summarising step, I began by defining a new categorical variable with three categories (summary strategy 3) based on the number of elevators, as well as the number of storeys:
-* If the building was only one floor, then I labelled the building as not needing an elevator.
-* If the building had several storeys and had no elevators, then I labelled the building as needing but not having an elevator.
-* If the building had several storeys and at least one elevator, then I labelled the building as needing and having an elevator.
+
+-   If the building was only one floor, then I labelled the building as not needing an elevator.
+-   If the building had several storeys and had no elevators, then I labelled the building as needing but not having an elevator.
+-   If the building had several storeys and at least one elevator, then I labelled the building as needing and having an elevator.
 
 ```{r rq2.summary}
 
@@ -207,8 +208,7 @@ accessibility.rq2 <- accessibility %>%
 
 ```
 
-
-For the graphical step, I looked at the total percentage of buildings over time that had each of the accessibility features I was considering, now including whether or not the building had an elevator, if needed (Figure \ref{rq2.graph}). I used two different geom layers to add both lines and points to this graph (graphing strategy 5). Surprisingly, intercoms were present in most buildings even since the 1970's. Elevators appeared to make a fast entrance into the apartment building scene, but this could be due to the rising number of high-rise buildings. This theory requires further research. The rate at which barrier-free entrances and accessible parking have increased in prevalence appears to be relatively similar.
+For the graphical step, I looked at the total percentage of buildings over time that had each of the accessibility features I was considering, now including whether or not the building had an elevator, if needed (Figure \\ref{rq2.graph}). I used two different geom layers to add both lines and points to this graph (graphing strategy 5). Surprisingly, intercoms were present in most buildings even since the 1970's. Elevators appeared to make a fast entrance into the apartment building scene, but this could be due to the rising number of high-rise buildings. This theory requires further research. The rate at which barrier-free entrances and accessible parking have increased in prevalence appears to be relatively similar.
 
 ```{r rq2.graph, fig.cap="\\label{rq2.graph} Percentage of buildings over time with each identified accessibility feature. Each of these points were"}
 
@@ -243,9 +243,9 @@ ggplot() +
 
 # Research question \#3
 
-3. Is the safety of an apartment building associated with the ward/community in which the building exists?
+1.  Is the safety of an apartment building associated with the ward/community in which the building exists?
 
-For graphical exploration of Research Question 3, I looked into how the presence of a fire escape differed across the three communities in conjunction with the number of storeys present for each building (Figure \ref{rq3.graph}). I assumed that some high-rise buildings might not have fire escapes simply because they are so tall, but I was surprised to find that the number of storeys did not have as obvious of an influence on whether or not each building had a fire escape. I used graphing strategy 6 for this question.
+For graphical exploration of Research Question 3, I looked into how the presence of a fire escape differed across the three communities in conjunction with the number of storeys present for each building (Figure \\ref{rq3.graph}). I assumed that some high-rise buildings might not have fire escapes simply because they are so tall, but I was surprised to find that the number of storeys did not have as obvious of an influence on whether or not each building had a fire escape. I used graphing strategy 6 for this question.
 
 ```{r rq3.graph, fig.cap="\\label{rq3.graph} The number of storeys per building vs the community that the building is in, along with whether the building has an exterior fire escape or not."}
 
@@ -298,9 +298,9 @@ gt(rowname_col="community",
 
 # Research question \#4
 
-4. Have the safety features for apartment buildings in Toronto increased over time?
+1.  Have the safety features for apartment buildings in Toronto increased over time?
 
-For Research Question 4, I first used summary strategy 3 to define each building as either small (<4 storeys), low-rise (4-12 storeys), or hihg-rise (>12 storeys). I thought these deliminations may be more simple than the exact number of storeys when I want to investigate something like whether or not an exterior fire escape was prevalent & practical.
+For Research Question 4, I first used summary strategy 3 to define each building as either small (\<4 storeys), low-rise (4-12 storeys), or hihg-rise (\>12 storeys). I thought these deliminations may be more simple than the exact number of storeys when I want to investigate something like whether or not an exterior fire escape was prevalent & practical.
 
 ```{r rq4.summary}
 
@@ -315,7 +315,6 @@ safety.rq4 <- safety %>%
 ```
 
 Similarly to the graphing approach I used for Research Question 2, I looked at the relative prevalence of each of the safety features across time, and used graphing strategy 5 to make a graph with two geom layers. Fire alarms have been consistently present since 1900 or so, and unsurprisingly, air conditioning is one of the slowest features to come into prevalence, and is still in the lowest relative prevalence. Sprinkler systems and emergency power both increased in relative prevalence since the 1960s or so. Interestingly, exterior fire escapes have decreased in prevalence since 1950, which could be due to the increase in high rises; however, the decrease in exterior fire escapes happened long before the increase in high-rise.
-
 
 ```{r rq4.graph, fig.cap="\\label{rq4.graph} "}
 
@@ -355,7 +354,6 @@ Based on the operations that you've completed, how much closer are you to answer
 
 <!------------------------- Write your answer here ---------------------------->
 
-
 <!----------------------------------------------------------------------------->
 
 # Task 2: Tidy your data (12.5 points)
@@ -364,23 +362,21 @@ In this task, we will do several exercises to reshape our data. The goal here is
 
 A reminder of the definition of *tidy* data:
 
-- Each row is an **observation**
-- Each column is a **variable**
-- Each cell is a **value** I can consider the 'accessibility' dataset that I created because this dataset has only 10 variables. 
+-   Each row is an **observation**
+-   Each column is a **variable**
+-   Each cell is a **value** I can consider the 'accessibility' dataset that I created because this dataset has only 10 variables.
 
-
-*Tidy'ing* data is sometimes necessary because it can simplify computation. Other times it can be nice to organize data so that it can be easier to understand when read manually. 
+*Tidy'ing* data is sometimes necessary because it can simplify computation. Other times it can be nice to organize data so that it can be easier to understand when read manually.
 
 ### 2.1 (2.5 points)
 
-Based on the definition above, can you identify if your data is tidy or untidy? Go through all your columns, or if you have >8 variables, just pick 8, and explain whether the data is untidy or tidy.
+Based on the definition above, can you identify if your data is tidy or untidy? Go through all your columns, or if you have \>8 variables, just pick 8, and explain whether the data is untidy or tidy.
 
 <!--------------------------- Start your work below --------------------------->
- 
- 
+
 In any instance, the "tidyness" of a dataset depends on what you're researching. For example, for questions where I am researching research the trends over time, it is more efficient (especially for binary or categorical data) to group where each row is a year, and not a building.
- 
-Consider the example where I am investigating the safety features of the buildings. I can summarise so that each row is a year, each column is a given trait, and each value is the number of buildings in that year with that given trait. This is what I do in Research Question 4, above. 
+
+Consider the example where I am investigating the safety features of the buildings. I can summarise so that each row is a year, each column is a given trait, and each value is the number of buildings in that year with that given trait. This is what I do in Research Question 4, above.
 
 However, if my goal is to use year as a covariate in a regression to determine the relationship between year and, say, whether or not the building has sprinklers, then I would consider the current format of my data to be tidy, where every row is a building, every column is a variable, and every cell is the value for that variable.
 
@@ -398,7 +394,6 @@ Be sure to explain your reasoning for this task. Show us the "before" and "after
 
 <!--------------------------- Start your work below --------------------------->
 
-
 Let's make the dataset longer! (untidying our data). Sometimes data might be in this format if it's a combination of several different data sources. This format might be useful if we want to treat all the safety features together, and perhaps count the numbe of features (regardless of type) that exist in each building.
 
 ```{r untidy}
@@ -411,7 +406,6 @@ head(safety.untidy)
 
 ```
 
-
 ```{r tidy}
 
 # Let's make the dataset wider again! (tidying our data back up)
@@ -423,24 +417,21 @@ safety.untidy %>%
 
 ```
 
-
-
 <!----------------------------------------------------------------------------->
 
 ### 2.3 (5 points)
 
-Now, you should be more familiar with your data, and also have made progress in answering your research questions. Based on your interest, and your analyses, pick 2 of the 4 research questions to continue your analysis in milestone 3, and explain your decision. 
+Now, you should be more familiar with your data, and also have made progress in answering your research questions. Based on your interest, and your analyses, pick 2 of the 4 research questions to continue your analysis in milestone 3, and explain your decision.
 
-Try to choose a version of your data that you think will be appropriate to answer these 2 questions in milestone 3. Use between 4 and 8 functions that we've covered so far (i.e. by filtering, cleaning, tidy'ing, dropping irrelvant columns, etc.). 
+Try to choose a version of your data that you think will be appropriate to answer these 2 questions in milestone 3. Use between 4 and 8 functions that we've covered so far (i.e. by filtering, cleaning, tidy'ing, dropping irrelvant columns, etc.).
 
 <!--------------------------- Start your work below --------------------------->
 
 I chose the two questions related to accessibility because I liked the variety of types of attributes related to accessibility. The attributes related to safety were all yes/no, which can be handy to work with but I like a good challenge.
 
-1. Is the accessibility of a unit associated with the ward in which the building exists?
+1.  Is the accessibility of a unit associated with the ward in which the building exists?
 
-2. Have the accessibility features for apartment buildings increased over time?
-
+2.  Have the accessibility features for apartment buildings increased over time?
 
 ```{r}
 
@@ -478,11 +469,10 @@ accessibility <- apt_buildings %>%
 
 ```
 
-
 <!----------------------------------------------------------------------------->
 
 *When you are done, knit an `md` file. This is what we will mark! Make sure to open it and check that everything has knitted correctly before submitting your tagged release.*
 
 ### Attribution
 
-Thanks to Victor Yuan for mostly putting this together. 
+Thanks to Victor Yuan for mostly putting this together.

@@ -34,27 +34,27 @@ The `datateachr` package by Hayley Boyce and Jordan Bourak currently
 composed of 7 semi-tidy datasets for educational purposes. Here is a
 brief description of each dataset:
 
--   *apt\_buildings*: Acquired courtesy of The City of Toronto’s Open
+-   *apt_buildings*: Acquired courtesy of The City of Toronto’s Open
     Data Portal. It currently has 3455 rows and 37 columns.
 
--   *building\_permits*: Acquired courtesy of The City of Vancouver’s
+-   *building_permits*: Acquired courtesy of The City of Vancouver’s
     Open Data Portal. It currently has 20680 rows and 14 columns.
 
--   *cancer\_sample*: Acquired courtesy of UCI Machine Learning
+-   *cancer_sample*: Acquired courtesy of UCI Machine Learning
     Repository. It currently has 569 rows and 32 columns.
 
--   *flow\_sample*: Acquired courtesy of The Government of Canada’s
+-   *flow_sample*: Acquired courtesy of The Government of Canada’s
     Historical Hydrometric Database. It currently has 218 rows and 7
     columns.
 
--   *parking\_meters*: Acquired courtesy of The City of Vancouver’s Open
+-   *parking_meters*: Acquired courtesy of The City of Vancouver’s Open
     Data Portal. It currently has 10032 rows and 22 columns.
 
--   *steam\_games*: Acquired courtesy of Kaggle. It currently has 40833
+-   *steam_games*: Acquired courtesy of Kaggle. It currently has 40833
     rows and 21 columns.
 
--   *vancouver\_trees*: Acquired courtesy of The City of Vancouver’s
-    Open Data Portal. It currently has 146611 rows and 20 columns.
+-   *vancouver_trees*: Acquired courtesy of The City of Vancouver’s Open
+    Data Portal. It currently has 146611 rows and 20 columns.
 
 **Things to keep in mind**
 
@@ -75,16 +75,16 @@ And that is exactly the first thing that you will do!
 
 #### 1.1 Out of the 7 datasets available in the `datateachr` package, choose **4** that appeal to you based on their description. Write your choices below:
 
-1: *apt\_buildings*: Acquired courtesy of The City of Toronto’s Open
-Data Portal. It currently has 3455 rows and 37 columns.
+1: *apt_buildings*: Acquired courtesy of The City of Toronto’s Open Data
+Portal. It currently has 3455 rows and 37 columns.
 
-2: *building\_permits*: Acquired courtesy of The City of Vancouver’s
-Open Data Portal. It currently has 20680 rows and 14 columns.
+2: *building_permits*: Acquired courtesy of The City of Vancouver’s Open
+Data Portal. It currently has 20680 rows and 14 columns.
 
-3: *cancer\_sample*: Acquired courtesy of UCI Machine Learning
+3: *cancer_sample*: Acquired courtesy of UCI Machine Learning
 Repository. It currently has 569 rows and 32 columns.
 
-4: *vancouver\_trees*: Acquired courtesy of The City of Vancouver’s Open
+4: *vancouver_trees*: Acquired courtesy of The City of Vancouver’s Open
 Data Portal. It currently has 146611 rows and 20 columns.
 
 #### 1.2 One way to narrowing down your selection is to *explore* the datasets. Use your knowledge of dplyr to find out at least *3* attributes about each of these datasets (an attribute is something such as number of rows, variables, class type…). The goal here is to have an idea of *what the data looks like*.
@@ -95,7 +95,7 @@ do you want to use more than one? Would you like to write more comments
 outside of the code chunk?
 
 I used the `glimpse` function to look at each of the datasets. This
-function shows me three attributes for each dataset (\# of rows, \# of
+function shows me three attributes for each dataset (# of rows, # of
 columns, class type for each value).
 
 ``` r
@@ -245,17 +245,17 @@ vancouver_trees %>%
 
 #### 1.3 Now that you’ve explored the 4 datasets that you were initially most interested in, let’s narrow it down to 2. What lead you to choose these 2? Briefly explain your choices below, and feel free to include any code in your explanation.
 
-I ruled out the *cancer\_sample* dataset because I found that the
+I ruled out the *cancer_sample* dataset because I found that the
 attributes were less interpretable. I also ruled out the
-*building\_permits* dataset because a lot of the dataset was categorical
+*building_permits* dataset because a lot of the dataset was categorical
 data with a large number of categories. This type of data can be
 challenging to work with. I am left with:
 
-1.  *apt\_buildings*: Acquired courtesy of The City of Toronto’s Open
+1.  *apt_buildings*: Acquired courtesy of The City of Toronto’s Open
     Data Portal. It currently has 3455 rows and 37 columns.
 
-2.  *vancouver\_trees*: Acquired courtesy of The City of Vancouver’s
-    Open Data Portal. It currently has 146611 rows and 20 columns.
+2.  *vancouver_trees*: Acquired courtesy of The City of Vancouver’s Open
+    Data Portal. It currently has 146611 rows and 20 columns.
 
 #### 1.4 Time for the final decision! Going back to the beginning, it’s important to have an *end goal* in mind. For example, if I had chosen the `titanic` dataset for my project, I might’ve wanted to explore the relationship between survival and other variables. Try to think of 1 research question that you would want to answer with each dataset. Note them down below, and make your final choice based on what seems more interesting to you!
 
@@ -265,14 +265,14 @@ challenging to work with. I am left with:
 2.  Does the location and surface boundaries (e.g. proximity to roads)
     influence tree growth?
 
-I chose the first dataset, *apt\_buildings*, because I felt that the
+I chose the first dataset, *apt_buildings*, because I felt that the
 research question was more compelling.
 
 # Task 2: Exploring your dataset (15 points)
 
 ## Introduction
 
-The dataset I selected is the *apt\_buildings* dataset, which is a
+The dataset I selected is the *apt_buildings* dataset, which is a
 dataset of apartment buildings registered in Toronto with the Apartment
 Building Standard (ABS) program. The data includes attributes such as
 whether the building has air conditioning or not, whether there is
@@ -288,7 +288,7 @@ attributes in total, recorded for 3,455 apartment buildings.
 In any data analytics pipeline, it is valuable to first explore the
 missingness in the dataset. I first looked at the number of missing data
 points for each variable (Figure ). The most missing values occurred for
-the“amenities” and the “property management company name” variables.
+the”amenities” and the “property management company name” variables.
 
 When looking at the definition of the “amenities” attribute though (Are
 there amenities available in the building? If so, what is available?
@@ -303,12 +303,12 @@ missingness might have been correlated with the type of property
 property manager). However, there did not appear to be such a trend
 (Table ).
 
-The rest of the variables had &lt;160 missing data points, and most had
-&lt;100 missing data points. This corresponds to &lt;5% of the data.
-While it may be valuable to check if this missingess is correlated with
-the other covariates in the dataset, it doesn’t seem like excluding
-missing data will pose a large problem for downstream analyses,
-depending on the model.
+The rest of the variables had \<160 missing data points, and most had
+\<100 missing data points. This corresponds to \<5% of the data. While
+it may be valuable to check if this missingess is correlated with the
+other covariates in the dataset, it doesn’t seem like excluding missing
+data will pose a large problem for downstream analyses, depending on the
+model.
 
 ``` r
 apt_buildings %>%
