@@ -1,6 +1,6 @@
 # Mini data analysis
 
-This repository contains files related to a mini data analysis for STAT 545 at UBC.
+This repository contains files related to a mini data analysis for STAT 545 at UBC. At the time of this course, the milestone assignments could be found at https://stat545.stat.ubc.ca/mini-project/
 
 This data analysis is based on exploring the accessibility of apartment buildings in Toronto.
 
